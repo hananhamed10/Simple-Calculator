@@ -1,0 +1,9 @@
+image: node:24
+
+stages:
+  - test
+
+calculator-tests:
+  stage: test
+  script:
+    - npm test
