@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>الآلة الحاسبة — أول تجربة CD</title>
+</head>
+<body>
+  <h1>الآلة الحاسبة</h1>
+  <p>تجربة النشر التلقائي باستخدام GitLab CI/CD</p>
+
+  <form id="calculator">
+    <label>الرقم الأول:
+      <input id="first" type="number" step="any" required>
+    </label>
+
+    <label>الرقم الثاني:
+      <input id="second" type="number" step="any" required>
+    </label>
+
+    <button type="submit">اجمع</button>
+  </form>
+
+  <p>النتيجة: <output id="result"></output></p>
+
+  <script src="./calculator.js"></script>
+  <script>
+    document.getElementById("calculator").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const first = Number(document.getElementById("first").value);
+      const second = Number(document.getElementById("second").value);
+
+      document.getElementById("result").textContent = add(first, second);
+    });
+  </script>
+</body>
+</html>

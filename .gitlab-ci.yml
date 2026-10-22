@@ -2,8 +2,18 @@ image: node:24
 
 stages:
   - test
+  - deploy
 
 calculator-tests:
   stage: test
   script:
     - npm test
+
+deploy-calculator:
+  stage: deploy
+  script:
+    - mkdir -p public
+    - cp index.html calculator.js public/
+  pages: true
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
